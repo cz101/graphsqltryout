@@ -3,7 +3,7 @@
 export default function IndexPage(){
   return (
     <>
-    <p>hallo in indexpage</p>
+        <p>hallo in indexpage</p>
     
     </>
 
