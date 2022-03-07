@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@keystone-next/fields": "^15.0.0",
-    "@keystone-next/keystone": "^29.0.0",
-    "glob-to-regexp": "^0.4.1"
-  }
-}

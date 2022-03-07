@@ -1,12 +1,15 @@
 import 'dotenv/config';
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import  {User}  from './schemas/User';
+import  {Product}  from './schemas/Product';
+import  {ProductImage}  from './schemas/ProductImage';
+
 import {
   withItemData,
   statelessSessions,
 } from '@keystone-next/keystone/session';
 import { createAuth } from '@keystone-next/auth';
-
+import { insertSeedData } from './seed-data';
 
 const databaseURL = process.env.DATABASE_URL || 'mongodb://localhost:27017/KeystoneDB';
 
@@ -44,14 +47,25 @@ export default withAuth(config({
     db: {
       adapter: 'mongoose',
       url: databaseURL,
+      /*
+      async onConnect(keystone) {
+        console.log('Connected to the database!');
+        if (process.argv.includes('--seed-data')) {
+          await insertSeedData(keystone);
+        }
+      }
+      */
     },
+    
     lists: createSchema({
         User : User,
+        Product: Product,
+        ProductImage : ProductImage,
       }),
     ui: {
       // Show the UI only for poeple who pass this test
       isAccessAllowed: ( {session}) => {
-        console.log(session)
+       // console.log(session)
         return !!session?.data
 
       }
