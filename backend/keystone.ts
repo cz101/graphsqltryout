@@ -9,7 +9,7 @@ import {
   statelessSessions,
 } from '@keystone-next/keystone/session';
 import { createAuth } from '@keystone-next/auth';
-import { insertSeedData } from './seed-data';
+//import { insertSeedData } from './seed-data';
 
 const databaseURL = process.env.DATABASE_URL || 'mongodb://localhost:27017/KeystoneDB';
 

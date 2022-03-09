@@ -68,7 +68,7 @@ export const Product = list({
           inlineEdit: { fields: ['image', 'altText'] },
         },
       }), 
-
+      price: integer(),
       status: select({
         options: [
           { label: 'Draft', value: 'DRAFT' },

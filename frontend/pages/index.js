@@ -1,5 +1,7 @@
 //import Page from '../components/Page' 
 
+
+/*
 export default function IndexPage(){
   return (
     <>
@@ -9,6 +11,8 @@ export default function IndexPage(){
 
   )
 };
+
+*/
 /*
 import Items from '../components/Items.js'
 
@@ -20,3 +24,6 @@ const Home = props => (
 export default Home;
 
 */
+
+
+export {default} from './products'
