@@ -9,7 +9,6 @@ export default function Page({children}){
   return (
   <div>
     <Header/>
-    <h2> im in page comonent</h2>
     {children}
   </div>
   )
