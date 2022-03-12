@@ -59,13 +59,13 @@ console.log(createProduct)
     <Form onSubmit ={async (e)=>{
             e.preventDefault(), 
             console.log(inputs)
-            //const res =await createProduct()
+            const res =await createProduct()
             //console.log(res)
             await createProduct()
             clearForm()
-            Router.push{
+            Router.push({
               pathname: `/product/${res.data.createProduct.id}`
-            }
+            })
 
             }}>
       <DisplayError />
