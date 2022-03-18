@@ -1,16 +1,22 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from 'react';
 
-export default function useForm ( initial = {}){
-  
+export default function useForm(initial = {}) {
+  // create a state object for our inputs
+  const [inputs, setInputs] = useState(initial);
+  const initialValues = Object.values(initial).join('');
 
-const [inputs,setInputs] = useState(initial)
-const initialValues = Object.values(initial).join('');
+  useEffect(() => {
+    // This function runs when the things we are watching change
+    setInputs(initial);
+  }, [initialValues]);
 
-useEffect(()=>{
-  setInputs(initial)
+  // {
+  //   name: 'wes',
+  //   description: 'nice shoes',
+  //   price: 1000
+  // }
 
-}, [initialValues])
- function handleChange(e) {
+  function handleChange(e) {
     let { value, name, type } = e.target;
     if (type === 'number') {
       value = parseInt(value);
@@ -24,6 +30,7 @@ useEffect(()=>{
       [name]: value,
     });
   }
+
   function resetForm() {
     setInputs(initial);
   }
@@ -34,13 +41,12 @@ useEffect(()=>{
     );
     setInputs(blankState);
   }
-    //return the output form customer hook
-return {
-        inputs,
-        handleChange,
-        resetForm,
-        clearForm
-    }
-  
 
+  // return the things we want to surface from this custom hook
+  return {
+    inputs,
+    handleChange,
+    resetForm,
+    clearForm,
+  };
 }
