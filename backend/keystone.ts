@@ -3,13 +3,17 @@ import { config, createSchema } from '@keystone-next/keystone/schema';
 import  {User}  from './schemas/User';
 import  {Product}  from './schemas/Product';
 import  {ProductImage}  from './schemas/ProductImage';
-
+import { CartItem } from './schemas/CartItem';
+import { createAuth } from '@keystone-next/auth';
 import {
   withItemData,
   statelessSessions,
 } from '@keystone-next/keystone/session';
-import { createAuth } from '@keystone-next/auth';
 //import { insertSeedData } from './seed-data';
+//import {extendGraphqlSchema} from "./mutations/index"
+import {extendGraphqlSchema } from './mutations';
+
+
 
 const databaseURL = process.env.DATABASE_URL || 'mongodb://localhost:27017/KeystoneDB';
 
@@ -31,8 +35,15 @@ const {withAuth} = createAuth({
     fields: ['name', 'email', 'password'],
     // TODO: Add in inital roles here
   },
-
-
+  
+ 
+  passwordResetLink: {
+    async sendToken(args) {
+      // send the email
+       console.log (args)
+      //await sendPasswordResetEmail(args.token, args.identity);
+    },
+  },
 
 })
 export default withAuth(config({
@@ -61,7 +72,10 @@ export default withAuth(config({
         User : User,
         Product: Product,
         ProductImage : ProductImage,
+        CartItem:CartItem
       }),
+    extendGraphqlSchema,
+    
     ui: {
       // Show the UI only for poeple who pass this test
       isAccessAllowed: ( {session}) => {
