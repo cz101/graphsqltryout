@@ -12,7 +12,7 @@ const Title = styled.h3`
     line-height: 1.3;
     font-size: 4rem;
     text-align: center;
-    color: white;
+    color: cornflowerblue;
     padding: 0 1rem;
   }
 `;

@@ -12,6 +12,7 @@ async function addToCart(
 ): Promise<CartItemCreateInput> {
   console.log('ADDING TO CART!');
   // 1. Query the current user see if they are signed in
+
   const sesh = context.session as Session;
   if (!sesh.itemId) {
     throw new Error('You must be logged in to do this!');
@@ -36,6 +37,7 @@ async function addToCart(
       resolveFields: false,
     });
   }
+  /*
   // 4. if it isnt, create a new cart item!
   return await context.lists.CartItem.createOne({
     data: {
@@ -44,6 +46,7 @@ async function addToCart(
     },
     resolveFields: false,
   })
+  */
 }
 
 export default addToCart;
