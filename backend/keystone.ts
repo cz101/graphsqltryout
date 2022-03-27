@@ -12,6 +12,8 @@ import {
 //import { insertSeedData } from './seed-data';
 //import {extendGraphqlSchema} from "./mutations/index"
 import {extendGraphqlSchema } from './mutations';
+import { OrderItem } from './schemas/OrderItem';
+import { Order } from './schemas/Order';
 
 
 
@@ -72,7 +74,9 @@ export default withAuth(config({
         User : User,
         Product: Product,
         ProductImage : ProductImage,
-        CartItem:CartItem
+        CartItem:CartItem,
+        OrderItem:OrderItem,
+        Order:Order
       }),
     extendGraphqlSchema,
     

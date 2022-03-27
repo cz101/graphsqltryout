@@ -7,6 +7,7 @@ import fromatMoney  from '../lib/formatMoney';
 import calcTotalPrice from'../lib/calcTotalPrice'
 import { useCart } from '../lib/cartState';
 import RemoveFromCart from './styles/RemoveFromCart';
+import { Checkout } from './Checkout';
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
@@ -69,7 +70,7 @@ export default function Cart(){
 
                         </p>
                     </footer>
-
+                  <Checkout/>
                 </CartStyles>
             )
 }
