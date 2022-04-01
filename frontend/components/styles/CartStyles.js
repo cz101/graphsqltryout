@@ -19,7 +19,6 @@ const CartStyles = styled.div`
   grid-template-rows: auto 1fr auto;
   ${props => props.open && `transform: translateX(0);`};
   header {
-    font-color: black;
     border-bottom: 5px solid ${props => props.theme.black};
     margin-bottom: 2rem;
     padding-bottom: 2rem;

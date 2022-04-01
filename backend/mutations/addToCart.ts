@@ -37,7 +37,7 @@ async function addToCart(
       resolveFields: false,
     });
   }
-  /*
+  
   // 4. if it isnt, create a new cart item!
   return await context.lists.CartItem.createOne({
     data: {
@@ -46,7 +46,7 @@ async function addToCart(
     },
     resolveFields: false,
   })
-  */
+  
 }
 
 export default addToCart;
