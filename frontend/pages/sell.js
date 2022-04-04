@@ -1,10 +1,13 @@
-//import Page from "../components/Page";
 
 import CreateProduct from "../components/CreateProduct";
+import PleaseSignin from "../components/PleaseSingin";
 export default function SellPage(){
     return(
     <div>
-        <CreateProduct/>
+        <PleaseSignin>
+            <CreateProduct/>
+        </PleaseSignin>
+    
     </div>
         )
     

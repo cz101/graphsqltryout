@@ -1,9 +1,8 @@
 import { integer, select, text, relationship } from '@keystone-next/fields';
 import { list } from '@keystone-next/keystone/schema';
-//import { rules, isSignedIn } from '../access';
-
-
+import { rules, isSignedIn } from '../access';
 /*
+
 export const Product = list({
   access: {
     create: isSignedIn,
@@ -51,7 +50,12 @@ export const Product = list({
 */
 
 export const Product = list({
-
+  access: {
+    create: isSignedIn,
+    read: isSignedIn,
+    update: rules.canManageProducts,
+    delete: rules.canManageProducts,
+  },
   fields: {
       name: text({ isRequired: true }),
       description: text({
@@ -81,6 +85,12 @@ export const Product = list({
           createView: { fieldMode: 'hidden' },
         },
     
+      }),
+      user: relationship({
+        ref: 'User.products',
+        defaultValue: ({ context }) => ({
+          connect: { id: context.session.itemId },
+        }),
       }),
   
   },

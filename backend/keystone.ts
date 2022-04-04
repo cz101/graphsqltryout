@@ -4,6 +4,7 @@ import  {User}  from './schemas/User';
 import  {Product}  from './schemas/Product';
 import  {ProductImage}  from './schemas/ProductImage';
 import { CartItem } from './schemas/CartItem';
+import {Role} from './schemas/Role';
 import { createAuth } from '@keystone-next/auth';
 import {
   withItemData,
@@ -14,6 +15,8 @@ import {
 import {extendGraphqlSchema } from './mutations';
 import { OrderItem } from './schemas/OrderItem';
 import { Order } from './schemas/Order';
+import { permissions } from './access';
+import { permissionsList } from './schemas/fields';
 
 
 
@@ -76,7 +79,8 @@ export default withAuth(config({
         ProductImage : ProductImage,
         CartItem:CartItem,
         OrderItem:OrderItem,
-        Order:Order
+        Order:Order,
+        Role:Role
       }),
     extendGraphqlSchema,
     
@@ -91,7 +95,7 @@ export default withAuth(config({
 
       // to do add session 
       session: withItemData(statelessSessions(sessionConfig), {
-        User: `id`,
+        User: `id name email role{${permissionsList.join('')}}`,
       }),
   }));
 

@@ -1,6 +1,6 @@
 import { integer, select, text, relationship } from '@keystone-next/fields';
 import { list } from '@keystone-next/keystone/schema';
-//import { rules, isSignedIn } from '../access';
+import { rules, isSignedIn } from '../access';
 
 export const CartItem = list({
 
@@ -10,7 +10,7 @@ export const CartItem = list({
     }
   },
  
- /*
+ 
   access: {
     create: isSignedIn,
     read: rules.canOrder,
@@ -18,7 +18,6 @@ export const CartItem = list({
     delete: rules.canOrder,
   },
 
-  */
   fields: {
     // TODO: Custom Label in here
     quantity: integer({

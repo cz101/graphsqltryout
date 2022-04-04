@@ -42,7 +42,7 @@ export default function Products({page}){
  //   console.log(data , error , loading)
 
     if (loading){return <p>loading</p>}
-    if (error){return <p>Error : {erro.message}</p>}
+    if (error){return <p>Error : {error.message}</p>}
     return (
         <div>
             <ProductsListStyles>
