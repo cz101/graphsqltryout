@@ -53,7 +53,7 @@ export default function SingleProduct({id}){
   if (error) return <DisplayError error={error} />
   const{Product} = data
     return (
-        <ProductStyles>
+        <ProductStyles data-testid="singleProduct">
      
         <Head>
         <title>Products | {Product.name}</title>
@@ -70,3 +70,5 @@ export default function SingleProduct({id}){
         </ProductStyles>
  )
 }
+
+export {SINGLE_ITEM_QUERY}

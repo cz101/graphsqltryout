@@ -33,5 +33,5 @@ export default function Product({ product }) {
         <DeleteProduct id={product.id}>Delete</DeleteProduct>
       </div>
     </ItemStyles>
-  );
+  )
 }

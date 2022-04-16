@@ -28,16 +28,15 @@ mutation CREATE_PRODUCT_MUTATION(
     description
     name
   }
-}
-`
+}`;
 
-export default  function CreateProduct() {
+export default function CreateProduct() {
 
   const {inputs, handleChange,clearForm,resetForm} = useForm({
     image:'',
-    name: "shoes",
-    price : 112,
-    description: "the blah blah"
+    name: ' ',
+    price : 0,
+    description: ' '
     
   })
 
@@ -52,7 +51,7 @@ export default  function CreateProduct() {
   }
 )
 
-console.log(createProduct)
+//console.log(createProduct)
 
 
   return (
@@ -87,7 +86,7 @@ console.log(createProduct)
                 <input type="text" 
                         id="name" 
                         name="name"
-                        placeholder="name"
+                        placeholder="Name"
                         value={inputs.name}
                         onChange={ handleChange}                     
                 />
@@ -121,4 +120,6 @@ console.log(createProduct)
     </fieldset>
     </Form>
   )
-}
+};
+
+export   {CREATE_PRODUCT_MUTATION}
